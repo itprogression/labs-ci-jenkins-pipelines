@@ -16,7 +16,7 @@ Code:
 echo "Hello World!"
 sleep 10
 
-## Jenkins work whit app in:
+## Jenkins work with app in:
 
 ### Java: demo webapps
 
