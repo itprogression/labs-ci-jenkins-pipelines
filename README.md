@@ -14,7 +14,7 @@ link: https://github.com/jruels/jenkins-labs/blob/master/continuous-delivery/cha
 Code:
 #!/bin/bash
 echo "Hello World!"
-sleep 10
+sleep 11
 
 ## Jenkins work with app in:
 
