@@ -64,3 +64,5 @@ Links:
 ### Static Code Analysis with SonarQube
 
 https://github.com/jruels/jenkins-labs/blob/master/continuous-delivery/chapters/110_static_code_analysis_with_sonarqube.md
+
+...
