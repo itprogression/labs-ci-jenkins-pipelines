@@ -1,6 +1,6 @@
 // Declarative //
 pipeline {
-  agent ubuntu
+  agent any
 
   stages {
     stage('Test') {
