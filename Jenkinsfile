@@ -1,36 +1,43 @@
 // Declarative //
 pipeline {
   agent any
+  environment{
+    DOCKER_HUB = credentials (docker_hub_lastranikos)
+  }
+
+
+
+
 
   stages {
     stage('Test') {
       steps {
         sh '''
           docker --version // Check the version of docker
+          ls -lah
         '''
       }
     }
     stage('Buils') {
       steps {
         sh '''
-          ls -lah
           docker build ---tag= nodesimple4testinjenkins:${env.BUILD_NUMBER} .
           docker ps
           docker image ls
         '''
       }
     }
-    stage('Docker TAG') {
+    stage('Docker login to docker hub') {
       steps {
         sh '''
-          docker --version // Check the version of docker
+          echo $DOCKER_HUB_PSW | docker login -u $DOCKER_HUB_USR --password-stdin
         '''
       }
     }
     stage('Docker push') {
       steps {
         sh '''
-          docker --version // Check the version of docker
+          docker push NameRepoDockerHub/dockerIMG:tag
         '''
       }
     }
