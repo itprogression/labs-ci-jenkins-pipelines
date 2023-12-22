@@ -3,6 +3,8 @@ pipeline {
   agent any
   environment{
     DOCKER_HUB = credentials ('docker_hub_lastranikos')
+    RepoUser = "lastranikos"
+    RepoName = "nodesimplefortestinjenkins"
   }
 
 
@@ -20,7 +22,7 @@ pipeline {
     }
     stage('Buils') {
       steps {
-        sh "docker build --tag=nodesimplefortestinjenkins:$env.BUILD_NUMBER} ."
+        //sh "docker build --tag=nodesimplefortestinjenkins:$env.BUILD_NUMBER} ."
         sh """
           docker build --tag=nodesimplefortestinjenkins:$env.BUILD_NUMBER} .
           docker ps
@@ -30,16 +32,16 @@ pipeline {
     }
     stage('Docker login to docker hub') {
       steps {
-        sh '''
+        sh """
           echo $DOCKER_HUB_PSW | docker login -u $DOCKER_HUB_USR --password-stdin
-        '''
+        """
       }
     }
     stage('Docker push') {
       steps {
-        sh '''
-          docker push NameRepoDockerHub/dockerIMG:tag
-        '''
+        sh """
+          docker push $RepoUser/$RepoName:$env.BUILD_NUMBER
+        """
       }
     }
   }
