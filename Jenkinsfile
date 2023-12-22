@@ -1,6 +1,6 @@
 // Declarative //
 pipeline {
-  agent vm_integrador_byssh
+  agent ubuntu
 
   stages {
     stage('Test') {
@@ -13,7 +13,7 @@ pipeline {
     stage('Buils') {
       steps {
         sh '''
-          sh "docker build ---tag = nodesimple4testinjenkins:${env.BUILD_NUMBER} "
+          docker build ---tag = nodesimple4testinjenkins:${env.BUILD_NUMBER}
         '''
       }
     }
