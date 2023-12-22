@@ -13,7 +13,10 @@ pipeline {
     stage('Buils') {
       steps {
         sh '''
-          docker build ---tag= nodesimple4testinjenkins:${env.BUILD_NUMBER}
+          ls -lah
+          docker build ---tag= nodesimple4testinjenkins:${env.BUILD_NUMBER} .
+          docker ps
+          docker image ls
         '''
       }
     }
