@@ -2,7 +2,7 @@
 pipeline {
   agent any
   environment{
-    DOCKER_HUB = credentials (docker_hub_lastranikos)
+    DOCKER_HUB = credentials ('docker_hub_lastranikos')
   }
 
 
