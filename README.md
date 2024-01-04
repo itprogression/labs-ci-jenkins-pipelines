@@ -1,5 +1,11 @@
 # Laboratorio de CI con Jenkins pipelines
 
+version: 1.2
+Author: Nikos
+
+
+
+
 ## Jenkins jobs:
 
 ### Free Style: Hellow World in worker node ssh
